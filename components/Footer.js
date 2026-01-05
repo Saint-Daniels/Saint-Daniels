@@ -56,7 +56,6 @@ const Footer = () => {
             <h4 className="footer-title">MEMBERS</h4>
             <ul className="footer-links">
               <li><Link href="/newsletter">Newsletter</Link></li>
-              <li><Link href="/resources">Documents</Link></li>
               <li><Link href="/help">Help Center</Link></li>
             </ul>
           </div>
@@ -64,24 +63,29 @@ const Footer = () => {
           <div className="footer-column">
             <h4 className="footer-title">RESOURCES</h4>
             <ul className="footer-links">
-              <li><Link href="/privacy">Privacy Policy</Link></li>
-              <li><Link href="/terms">Terms of Service</Link></li>
-              <li><Link href="/legal">Legal</Link></li>
+              <li><Link href="/whitepaper">Whitepaper</Link></li>
+              <li><Link href="/resources">Documents</Link></li>
             </ul>
           </div>
           
           <div className="footer-column">
             <h4 className="footer-title">COMPANY</h4>
             <ul className="footer-links">
-              <li><Link href="/whitepaper">Whitepaper</Link></li>
               <li><Link href="/about">About Us</Link></li>
               <li><Link href="/contact">Contact</Link></li>
             </ul>
           </div>
         </div>
         
-        <div className="footer-bottom">
-          <p>© 2025 Saint Daniels Healthcare. All rights reserved.</p>
+        <div className="footer-bottom" style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', gap: '1rem', flexWrap: 'wrap' }}>
+          <p style={{ margin: 0 }}>© 2025 Saint Daniels Healthcare. All rights reserved.</p>
+          <span style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <Link href="/privacy" style={{ color: 'inherit', textDecoration: 'none' }}>Privacy Policy</Link>
+            <span>|</span>
+            <Link href="/terms" style={{ color: 'inherit', textDecoration: 'none' }}>Terms of Service</Link>
+            <span>|</span>
+            <Link href="/legal" style={{ color: 'inherit', textDecoration: 'none' }}>Legal</Link>
+          </span>
         </div>
       </div>
     </footer>
