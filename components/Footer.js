@@ -7,8 +7,7 @@ import { FaYoutube, FaInstagram, FaTiktok, FaFacebook } from 'react-icons/fa';
 
 const Footer = () => {
   const pathname = usePathname();
-  const isMinimalFooter = pathname === '/login' || 
-                         pathname === '/signup' || 
+  const isMinimalFooter = pathname === '/signup' || 
                          pathname === '/register' ||
                          pathname === '/newsletter' || 
                          pathname === '/partners' || 

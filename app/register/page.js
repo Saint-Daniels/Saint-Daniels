@@ -1287,7 +1287,6 @@ export default function SignupPage() {
 
                   <div className="text-center mt-4">
                     <p className="text-muted">
-                      Already have an account? <Link href="/login">Login here</Link>
                     </p>
                   </div>
                 </div>

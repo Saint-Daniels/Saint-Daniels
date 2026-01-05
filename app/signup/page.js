@@ -1467,7 +1467,7 @@ export default function SignupPage() {
 
                   <div className="text-center mt-4">
                     <p className="text-muted">
-                      Already have an account? <Link href="/login">Login here</Link> | <Link href="#" onClick={(e) => { e.preventDefault(); setShowContactModal(true); }} style={{ cursor: 'pointer' }}>Contact Us</Link>
+                      <Link href="#" onClick={(e) => { e.preventDefault(); setShowContactModal(true); }} style={{ cursor: 'pointer' }}>Contact Us</Link>
                     </p>
                   </div>
                 </div>

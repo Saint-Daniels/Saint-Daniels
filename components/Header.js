@@ -23,11 +23,6 @@ export default function Header() {
             />
             <span className="brand-text">SAINT DANIELS</span>
           </Link>
-          {!isLearnMorePage && (
-            <Link href="/login">
-              <button className="login-button">Login</button>
-            </Link>
-          )}
         </div>
       </Container>
     </div>

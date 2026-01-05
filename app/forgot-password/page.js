@@ -92,12 +92,6 @@ export default function ForgotPassword() {
                       </Button>
 
                       <div className="text-center">
-                        <p className="mb-0">
-                          Remember your password?{' '}
-                          <Link href="/login" className="text-primary text-decoration-none">
-                            Back to Login
-                          </Link>
-                        </p>
                         <p className="mb-0 mt-3">
                           <Link href="/contact" className="text-primary text-decoration-none">
                             Need help? Contact us

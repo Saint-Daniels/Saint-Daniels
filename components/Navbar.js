@@ -30,11 +30,6 @@ const MainNavbar = () => {
             />
             <span className="brand-text">Saint Daniels</span>
           </Link>
-          {isHomePage && (
-            <Link href="/login" className="nav-button ms-auto">
-              Login
-            </Link>
-          )}
         </div>
       </Container>
     </Navbar>

@@ -54,10 +54,7 @@ export default function ThankYouPage() {
               </div>
 
               <div className="text-center">
-                <Link href="/dashboard" className="btn btn-primary btn-lg me-3">
-                  Go to Dashboard
-                </Link>
-                <Link href="/" className="btn btn-outline-secondary btn-lg">
+                <Link href="/" className="btn btn-primary btn-lg">
                   Return Home
                 </Link>
               </div>
