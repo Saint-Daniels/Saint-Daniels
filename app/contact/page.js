@@ -85,32 +85,9 @@ export default function Contact() {
         </section>
 
         <Container style={{ padding: '4rem 0' }}>
-          <Row>
-            {/* Map Section */}
-            <Col lg={6} className="mb-4">
-              <ScrollFadeIn>
-                <div style={{
-                  height: '500px',
-                  borderRadius: '15px',
-                  overflow: 'hidden',
-                  boxShadow: '0 4px 15px rgba(0, 0, 0, 0.08)'
-                }}>
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3354.5!2d-96.7970!3d32.7767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e9c8b8b8b8b8b%3A0x8b8b8b8b8b8b8b8b!2sDallas%2C%20TX!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen=""
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="Dallas, Texas Map"
-                  ></iframe>
-                </div>
-              </ScrollFadeIn>
-            </Col>
-
+          <Row className="justify-content-center">
             {/* Contact Form Section */}
-            <Col lg={6}>
+            <Col lg={8} md={10}>
               <ScrollFadeIn>
                 <div style={{
                   background: 'white',

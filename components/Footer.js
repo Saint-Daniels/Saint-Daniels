@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { FaYoutube, FaInstagram, FaTiktok, FaFacebook } from 'react-icons/fa';
+import { FaGithub, FaFacebook } from 'react-icons/fa';
 
 const Footer = () => {
   const pathname = usePathname();
@@ -40,14 +40,8 @@ const Footer = () => {
           <div className="footer-column">
             <h3 className="footer-title">SAINT DANIELS</h3>
             <div className="social-icons">
-              <a href="https://youtube.com/@saintdaniels" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="YouTube">
-                <FaYoutube />
-              </a>
-              <a href="https://instagram.com/centuriesmutual" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Instagram">
-                <FaInstagram />
-              </a>
-              <a href="https://tiktok.com/@_saintdaniels" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="TikTok">
-                <FaTiktok />
+              <a href="https://github.com/saint-daniels" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="GitHub">
+                <FaGithub />
               </a>
               <a href="https://www.facebook.com/profile.php?id=61576418669825#" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Facebook">
                 <FaFacebook />
@@ -74,6 +68,7 @@ const Footer = () => {
           <div className="footer-column">
             <h4 className="footer-title">COMPANY</h4>
             <ul className="footer-links">
+              <li><Link href="/whitepaper">Whitepaper</Link></li>
               <li><Link href="/about">About Us</Link></li>
               <li><Link href="/contact">Contact</Link></li>
             </ul>
