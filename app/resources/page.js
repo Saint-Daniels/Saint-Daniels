@@ -11,8 +11,8 @@ import Link from 'next/link';
 export default function ResourcesPage() {
   const documents = [
     {
-      title: "Healthcare Rewards Program Guide",
-      description: "Complete guide to understanding how private subsidies work, earning rewards, and spending at pharmacies",
+      title: "Healthcare Rewards Program",
+      description: "Complete guide to understanding how private subsidies work",
       link: "#",
       icon: <FaBook size={28} />,
       color: '#2c5530'

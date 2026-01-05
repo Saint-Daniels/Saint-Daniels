@@ -1,69 +1,65 @@
 'use client';
 
-import { Container, Row, Col, Card } from 'react-bootstrap';
-import { FaPhone, FaBuilding, FaEnvelope, FaHospital, FaNetworkWired, FaHeadset, FaChartLine, FaShieldAlt } from 'react-icons/fa';
+import { useState } from 'react';
+import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
+import { FaPhone } from 'react-icons/fa';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import PageTransition from '../../components/PageTransition';
 import { ScrollFadeIn } from '../../components/ScrollAnimation';
 
 export default function Contact() {
-  const offices = [
-    {
-      title: "Corporate Headquarters",
-      icon: <FaBuilding />,
-      address: "6000 Ross Perot Blvd",
-      city: "Dallas, TX 75201",
-      phone: "888-324-6642",
-      email: "corporate@saintdanielshealthcare.com",
-      description: "Main administrative offices and executive leadership"
-    },
-    {
-      title: "Pharmacy Network Operations",
-      icon: <FaHospital />,
-      address: "1245 Healthcare Drive",
-      city: "Austin, TX 78701",
-      phone: "888-324-6643",
-      email: "pharmacy@saintdanielshealthcare.com",
-      description: "Pharmacy partner relations and network management"
-    },
-    {
-      title: "Member Support Center",
-      icon: <FaHeadset />,
-      address: "890 Member Services Plaza",
-      city: "Houston, TX 77002",
-      phone: "888-324-6642",
-      email: "support@saintdanielshealthcare.com",
-      description: "24/7 member support and customer service"
-    },
-    {
-      title: "Ad Network Operations",
-      icon: <FaNetworkWired />,
-      address: "2345 Digital Commerce Blvd",
-      city: "Dallas, TX 75202",
-      phone: "888-324-6644",
-      email: "adnetwork@saintdanielshealthcare.com",
-      description: "Healthcare ad network and campaign management"
-    },
-    {
-      title: "Financial Services",
-      icon: <FaChartLine />,
-      address: "5678 Finance Tower",
-      city: "Dallas, TX 75203",
-      phone: "888-324-6645",
-      email: "finance@saintdanielshealthcare.com",
-      description: "Subsidy treasury and compound interest operations"
-    },
-    {
-      title: "Privacy & Compliance",
-      icon: <FaShieldAlt />,
-      address: "901 Security Center",
-      city: "Austin, TX 78702",
-      phone: "888-324-6646",
-      email: "privacy@saintdanielshealthcare.com",
-      description: "HIPAA compliance and data protection"
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+    setError('');
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    if (!formData.name || !formData.email || !formData.message) {
+      setError('Please fill in all required fields.');
+      return;
     }
-  ];
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setError('Please enter a valid email address.');
+      return;
+    }
+
+    setIsSubmitting(true);
+    setError('');
+
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      setSuccess(true);
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        message: ''
+      });
+    } catch (err) {
+      setError('An error occurred while sending your message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <PageTransition>
@@ -80,7 +76,7 @@ export default function Contact() {
                   </h1>
                   <div className="mission-divider" style={{ margin: '1.5rem auto', background: '#C4A962' }}></div>
                   <p className="mission-description-professional" style={{ fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto', color: 'rgba(255, 255, 255, 0.9)' }}>
-                    Reach out to our team across our network of offices dedicated to serving your healthcare rewards needs
+                    Get in touch with our support team
                   </p>
                 </Col>
               </Row>
@@ -89,131 +85,158 @@ export default function Contact() {
         </section>
 
         <Container style={{ padding: '4rem 0' }}>
-          {/* Offices Grid */}
-          <Row className="g-4">
-            {offices.map((office, index) => (
-              <Col lg={4} md={6} key={index}>
-                <ScrollFadeIn delay={index * 0.1}>
-                  <Card style={{
-                    border: 'none',
-                    borderRadius: '15px',
-                    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.08)',
-                    height: '100%',
-                    transition: 'all 0.3s ease',
-                    background: 'white'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'translateY(-5px)';
-                    e.currentTarget.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.12)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.08)';
-                  }}
-                  >
-                    <Card.Body style={{ padding: '2rem' }}>
-                      <div style={{
-                        width: '70px',
-                        height: '70px',
-                        borderRadius: '50%',
-                        background: 'linear-gradient(135deg, #2c5530 0%, #4a7c59 100%)',
-                        color: 'white',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        marginBottom: '1.5rem',
-                        fontSize: '1.75rem'
-                      }}>
-                        {office.icon}
+          <Row>
+            {/* Map Section */}
+            <Col lg={6} className="mb-4">
+              <ScrollFadeIn>
+                <div style={{
+                  height: '500px',
+                  borderRadius: '15px',
+                  overflow: 'hidden',
+                  boxShadow: '0 4px 15px rgba(0, 0, 0, 0.08)'
+                }}>
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3354.5!2d-96.7970!3d32.7767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e9c8b8b8b8b8b%3A0x8b8b8b8b8b8b8b8b!2sDallas%2C%20TX!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen=""
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Dallas, Texas Map"
+                  ></iframe>
+                </div>
+              </ScrollFadeIn>
+            </Col>
+
+            {/* Contact Form Section */}
+            <Col lg={6}>
+              <ScrollFadeIn>
+                <div style={{
+                  background: 'white',
+                  borderRadius: '15px',
+                  padding: '2.5rem',
+                  boxShadow: '0 4px 15px rgba(0, 0, 0, 0.08)',
+                  height: '100%'
+                }}>
+                  <h2 style={{
+                    color: '#1B392F',
+                    fontSize: '2rem',
+                    fontWeight: 700,
+                    marginBottom: '1.5rem'
+                  }}>
+                    Send us a Message
+                  </h2>
+
+                  {/* Phone Number */}
+                  <div style={{
+                    background: 'linear-gradient(135deg, #1B392F 0%, #2c5530 100%)',
+                    borderRadius: '10px',
+                    padding: '1.5rem',
+                    marginBottom: '2rem',
+                    color: 'white'
+                  }}>
+                    <div className="d-flex align-items-center">
+                      <FaPhone className="me-3" style={{ fontSize: '1.5rem' }} />
+                      <div>
+                        <div style={{ fontSize: '0.9rem', opacity: 0.9, marginBottom: '0.25rem' }}>
+                          Call Us
+                        </div>
+                        <a href="tel:1-888-548-9952" style={{
+                          color: 'white',
+                          textDecoration: 'none',
+                          fontSize: '1.5rem',
+                          fontWeight: 700
+                        }}>
+                          1-888-548-9952
+                        </a>
                       </div>
-                      <h4 style={{
-                        color: '#1B392F',
-                        fontWeight: 700,
-                        marginBottom: '1rem',
-                        fontSize: '1.35rem'
-                      }}>
-                        {office.title}
-                      </h4>
-                      <p style={{
-                        color: '#666',
-                        fontSize: '0.95rem',
-                        marginBottom: '1.5rem',
-                        lineHeight: '1.6'
-                      }}>
-                        {office.description}
-                      </p>
-                      <div style={{
-                        borderTop: '1px solid #e9ecef',
-                        paddingTop: '1.5rem',
-                        marginTop: '1.5rem'
-                      }}>
-                        <div style={{ marginBottom: '0.75rem' }}>
-                          <div style={{
-                            fontSize: '0.75rem',
-                            color: '#8e8e93',
-                            textTransform: 'uppercase',
-                            letterSpacing: '0.5px',
-                            marginBottom: '0.25rem',
-                            fontWeight: 600
-                          }}>
-                            Address
-                          </div>
-                          <div style={{ color: '#1B392F', fontWeight: 500 }}>
-                            {office.address}
-                          </div>
-                          <div style={{ color: '#666', fontSize: '0.9rem' }}>
-                            {office.city}
-                          </div>
-                        </div>
-                        <div style={{ marginBottom: '0.75rem' }}>
-                          <div style={{
-                            fontSize: '0.75rem',
-                            color: '#8e8e93',
-                            textTransform: 'uppercase',
-                            letterSpacing: '0.5px',
-                            marginBottom: '0.25rem',
-                            fontWeight: 600
-                          }}>
-                            Phone
-                          </div>
-                          <a href={`tel:${office.phone}`} style={{
-                            color: '#2c5530',
-                            textDecoration: 'none',
-                            fontWeight: 500
-                          }}>
-                            {office.phone}
-                          </a>
-                        </div>
-                        <div>
-                          <div style={{
-                            fontSize: '0.75rem',
-                            color: '#8e8e93',
-                            textTransform: 'uppercase',
-                            letterSpacing: '0.5px',
-                            marginBottom: '0.25rem',
-                            fontWeight: 600
-                          }}>
-                            Email
-                          </div>
-                          <a href={`mailto:${office.email}`} style={{
-                            color: '#2c5530',
-                            textDecoration: 'none',
-                            fontWeight: 500,
-                            fontSize: '0.9rem'
-                          }}>
-                            {office.email}
-                          </a>
-                        </div>
-                      </div>
-                    </Card.Body>
-                  </Card>
-                </ScrollFadeIn>
-              </Col>
-            ))}
+                    </div>
+                  </div>
+
+                  {error && (
+                    <Alert variant="danger" className="mb-3">
+                      {error}
+                    </Alert>
+                  )}
+
+                  {success && (
+                    <Alert variant="success" className="mb-3">
+                      Your message has been sent successfully! We'll get back to you soon.
+                    </Alert>
+                  )}
+
+                  <Form onSubmit={handleSubmit}>
+                    <Form.Group className="mb-3">
+                      <Form.Label>Name <span style={{ color: 'red' }}>*</span></Form.Label>
+                      <Form.Control
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="Enter your name"
+                        required
+                      />
+                    </Form.Group>
+
+                    <Form.Group className="mb-3">
+                      <Form.Label>Email <span style={{ color: 'red' }}>*</span></Form.Label>
+                      <Form.Control
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="Enter your email"
+                        required
+                      />
+                    </Form.Group>
+
+                    <Form.Group className="mb-3">
+                      <Form.Label>Phone Number</Form.Label>
+                      <Form.Control
+                        type="tel"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        placeholder="Enter your phone number (optional)"
+                      />
+                    </Form.Group>
+
+                    <Form.Group className="mb-3">
+                      <Form.Label>Message <span style={{ color: 'red' }}>*</span></Form.Label>
+                      <Form.Control
+                        as="textarea"
+                        rows={6}
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        placeholder="Enter your message..."
+                        required
+                      />
+                    </Form.Group>
+
+                    <Button
+                      type="submit"
+                      disabled={isSubmitting}
+                      style={{
+                        background: '#C4A962',
+                        border: 'none',
+                        padding: '0.75rem 2rem',
+                        fontSize: '1.1rem',
+                        fontWeight: 600,
+                        width: '100%'
+                      }}
+                    >
+                      {isSubmitting ? 'Sending...' : 'Send Message'}
+                    </Button>
+                  </Form>
+                </div>
+              </ScrollFadeIn>
+            </Col>
           </Row>
         </Container>
       </div>
       <Footer />
     </PageTransition>
   );
-} 
+}

@@ -254,9 +254,10 @@ export default function SupportModal({ show, onHide }) {
               type="submit"
               disabled={!canSubmit || isSubmitting}
               style={{ 
-                background: '#1B392F', 
+                background: '#C4A962', 
                 border: 'none',
-                flex: 1
+                flex: 1,
+                color: 'white'
               }}
             >
               {isSubmitting ? 'Sending...' : 'Send Message'}
