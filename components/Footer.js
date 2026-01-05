@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { FaGithub, FaFacebook } from 'react-icons/fa';
+import { FaGithub, FaFacebook, FaYoutube } from 'react-icons/fa';
 
 const Footer = () => {
   const pathname = usePathname();
@@ -43,6 +43,9 @@ const Footer = () => {
               <a href="https://github.com/saint-daniels" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="GitHub">
                 <FaGithub />
               </a>
+              <a href="https://youtube.com/@saintdaniels" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="YouTube">
+                <FaYoutube />
+              </a>
               <a href="https://www.facebook.com/profile.php?id=61576418669825#" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Facebook">
                 <FaFacebook />
               </a>
@@ -52,6 +55,7 @@ const Footer = () => {
           <div className="footer-column">
             <h4 className="footer-title">MEMBERS</h4>
             <ul className="footer-links">
+              <li><Link href="/newsletter">Newsletter</Link></li>
               <li><Link href="/resources">Documents</Link></li>
               <li><Link href="/help">Help Center</Link></li>
             </ul>
@@ -62,6 +66,7 @@ const Footer = () => {
             <ul className="footer-links">
               <li><Link href="/privacy">Privacy Policy</Link></li>
               <li><Link href="/terms">Terms of Service</Link></li>
+              <li><Link href="/legal">Legal</Link></li>
             </ul>
           </div>
           
