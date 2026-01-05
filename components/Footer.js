@@ -77,7 +77,7 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="footer-bottom" style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', gap: '1rem', flexWrap: 'wrap' }}>
+        <div className="footer-bottom" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem', flexWrap: 'wrap' }}>
           <p style={{ margin: 0 }}>© 2025 Saint Daniels Healthcare. All rights reserved.</p>
           <span style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <Link href="/privacy" style={{ color: 'inherit', textDecoration: 'none' }}>Privacy Policy</Link>
