@@ -18,60 +18,39 @@ export default function ResourcesPage() {
       color: '#2c5530'
     },
     {
-      title: "Compound Interest Vault Guide",
-      description: "Detailed explanation of how unused rewards grow through our compound network treasury",
+      title: "Tax Forms",
+      description: "Tax documents and forms for your healthcare rewards account",
       link: "#",
       icon: <FaFileInvoice size={28} />,
       color: '#C4A962'
     },
     {
-      title: "Pharmacy Network Directory",
-      description: "Comprehensive list of participating pharmacies where you can redeem your private subsidy",
+      title: "Identity Documents",
+      description: "Driver's license, state ID, or government-issued identification",
       link: "#",
-      icon: <FaListAlt size={28} />,
+      icon: <FaFileAlt size={28} />,
       color: '#2c5530'
     },
     {
-      title: "Rewards Application Form",
-      description: "Complete application form to enroll in the healthcare rewards program",
-      link: "/application",
+      title: "Employment Verification",
+      description: "Pay stubs, employment letter, or employer verification forms",
+      link: "#",
       icon: <FaFileContract size={28} />,
       color: '#C4A962'
     },
     {
-      title: "Pharmacy Verification Form",
-      description: "Form to verify and connect your preferred pharmacy to your account",
+      title: "Citizenship Verification",
+      description: "Birth certificate, passport, or naturalization certificate",
       link: "#",
       icon: <FaFileMedical size={28} />,
       color: '#2c5530'
     },
     {
-      title: "Account Update Form",
-      description: "Update your personal information, pharmacy preferences, or vault settings",
+      title: "Residence Verification",
+      description: "Utility bills, lease agreement, or mortgage statement",
       link: "#",
       icon: <FaFileAlt size={28} />,
       color: '#C4A962'
-    },
-    {
-      title: "Privacy Policy",
-      description: "How we protect your health data and maintain HIPAA-safe architecture",
-      link: "/privacy",
-      icon: <FaLock size={28} />,
-      color: '#2c5530'
-    },
-    {
-      title: "Terms of Service",
-      description: "Terms and conditions for using the healthcare rewards platform",
-      link: "/terms",
-      icon: <FaFileContract size={28} />,
-      color: '#C4A962'
-    },
-    {
-      title: "Data Protection Notice",
-      description: "Information about our blockchain-based privacy protections and data handling",
-      link: "#",
-      icon: <FaShieldAlt size={28} />,
-      color: '#2c5530'
     }
   ];
 
